@@ -117,11 +117,11 @@ function Grant-RsRestItemAccessPolicy
                 $PolicyUri = [String]::Format($PolicyUri, $Item.Id)
                 if ($Credential -ne $null)
                 {
-                    $response = Invoke-RestMethod -Uri $PolicyUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
+                    $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
                 }
                 else
                 {
-                    $response = Invoke-RestMethod -Uri $PolicyUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                    $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
                 }
             }
             elseif ($Item.Type -eq 'Folder') {
@@ -130,11 +130,11 @@ function Grant-RsRestItemAccessPolicy
                 $PolicyUri = [String]::Format($PolicyUri, $Item.Id)
                 if ($Credential -ne $null)
                 {
-                    $response = Invoke-RestMethod -Uri $PolicyUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
+                    $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
                 }
                 else
                 {
-                    $response = Invoke-RestMethod -Uri $PolicyUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                    $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
                 }
             }
             
@@ -153,11 +153,11 @@ function Grant-RsRestItemAccessPolicy
             Write-Verbose "$payloadJson"
             if ($Credential -ne $null)
             {
-                $response = Invoke-RestMethod -Uri $PolicyUri -Method Put -WebSession $WebSession -Credential $Credential -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json"  -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Put -WebSession $WebSession -Credential $Credential -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json"  -Verbose:$false
             }
             else
             {
-                $response = Invoke-RestMethod -Uri $PolicyUri -Method Put -WebSession $WebSession -UseDefaultCredentials -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Put -WebSession $WebSession -UseDefaultCredentials -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -Verbose:$false
             }
             return $response
         }

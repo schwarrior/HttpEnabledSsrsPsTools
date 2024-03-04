@@ -106,11 +106,11 @@ function Get-RsRestItemAccessPolicy
             $PolicyUri = [String]::Format($PolicyUri, $Item.Id)
             if ($Credential -ne $null)
             {
-                $response = Invoke-RestMethod -Uri $PolicyUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
             }
             else
             {
-                $response = Invoke-RestMethod -Uri $PolicyUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
             }
 
             $catalogItemRoles = @()
@@ -160,11 +160,11 @@ function Get-RsRestItemAccessPolicy
             
                     if ($Credential -ne $null)
                     {
-                        $childPolicies = Invoke-RestMethod -Uri $PolicyUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
+                        $childPolicies = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
                     }
                     else
                     {
-                        $childPolicies = Invoke-RestMethod -Uri $PolicyUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                        $childPolicies = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $PolicyUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
                     }
     
                     # Filter Polices by Identity

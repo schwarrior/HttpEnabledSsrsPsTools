@@ -90,11 +90,11 @@ function Get-RsRestCacheRefreshPlan
             $CacheRefreshPlanUri = [String]::Format($CacheRefreshPlanUri, $Report.Id)
             if ($Credential -ne $null)
             {
-                $response = Invoke-RestMethod -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
             }
             else
             {
-                $response = Invoke-RestMethod -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
             }
 
             $items = $response.value

@@ -136,11 +136,11 @@ function Start-RsRestCacheRefreshPlan
             Write-Verbose "Starting Refresh for $($RefreshPlan.RsReport)$($Id)..."
             if ($Credential -ne $null)
             {
-                $response = Invoke-RestMethod -Uri $CacheRefreshPlansUri -Method Post -WebSession $WebSession -Credential $Credential -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlansUri -Method Post -WebSession $WebSession -Credential $Credential -Verbose:$false
             }
             else
             {
-                $response = Invoke-RestMethod -Uri $CacheRefreshPlansUri -Method Post -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlansUri -Method Post -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
             }
         }
         catch

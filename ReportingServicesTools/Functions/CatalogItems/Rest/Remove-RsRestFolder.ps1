@@ -80,11 +80,11 @@ function Remove-RsRestFolder
 
                 if ($Credential -ne $null)
                 {
-                    Invoke-WebRequest -Uri $foldersUri -Method Delete -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
+                    Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $foldersUri -Method Delete -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
                 }
                 else
                 {
-                    Invoke-WebRequest -Uri $foldersUri -Method Delete -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
+                    Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $foldersUri -Method Delete -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
                 }
 
                 Write-Verbose "Folder $RsFolder was deleted successfully!"

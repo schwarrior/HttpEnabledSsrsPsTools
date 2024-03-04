@@ -331,11 +331,11 @@ function Write-RsRestCatalogItem
             {
                 if ($Credential -ne $null)
                 {
-                    Invoke-WebRequest -Uri $endpointUrl -Method Post -WebSession $WebSession -Body $requestBody -ContentType $contentType -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
+                    Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $endpointUrl -Method Post -WebSession $WebSession -Body $requestBody -ContentType $contentType -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
                 }
                 else
                 {
-                    Invoke-WebRequest -Uri $endpointUrl -Method Post -WebSession $WebSession -Body $requestBody -ContentType $contentType -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
+                    Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $endpointUrl -Method Post -WebSession $WebSession -Body $requestBody -ContentType $contentType -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
                 }
 
                 Write-Verbose "$EntirePath was uploaded to $RsFolder successfully!"
@@ -350,11 +350,11 @@ function Write-RsRestCatalogItem
                         $uri = [String]::Format($catalogItemsByPathApi, $itemPath)
                         if ($Credential -ne $null)
                         {
-                            $response = Invoke-WebRequest -Uri $uri -Method Get -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false
+                            $response = Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $uri -Method Get -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false
                         }
                         else
                         {
-                            $response = Invoke-WebRequest -Uri $uri -Method Get -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false
+                            $response = Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $uri -Method Get -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false
                         }
 
                         # parsing response to get Id
@@ -365,11 +365,11 @@ function Write-RsRestCatalogItem
                         $uri = [String]::Format($catalogItemsUpdateUri, $itemId)
                         if ($Credential -ne $null)
                         {
-                            Invoke-WebRequest -Uri $uri -Method Put -WebSession $WebSession -Body $requestBody -ContentType "application/json" -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
+                            Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $uri -Method Put -WebSession $WebSession -Body $requestBody -ContentType "application/json" -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
                         }
                         else
                         {
-                            Invoke-WebRequest -Uri $uri -Method Put -WebSession $WebSession -Body $requestBody -ContentType "application/json" -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
+                            Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $uri -Method Put -WebSession $WebSession -Body $requestBody -ContentType "application/json" -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
                         }
                         Write-Verbose "$EntirePath was uploaded to $RsFolder successfully!"
                     }

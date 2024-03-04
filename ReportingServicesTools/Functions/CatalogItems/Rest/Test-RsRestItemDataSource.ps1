@@ -105,11 +105,11 @@ function Test-RsRestItemDataSource
                 Write-Verbose "$DataSourceConnectionUri"
                 if ($Credential -ne $null)
                 {
-                    $PostResponse = Invoke-RestMethod -Uri $DataSourceConnectionUri -Method Post -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -Credential $Credential -Verbose:$false
+                    $PostResponse = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $DataSourceConnectionUri -Method Post -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -Credential $Credential -Verbose:$false
                 }
                 else
                 {
-                    $PostResponse = Invoke-RestMethod -Uri $DataSourceConnectionUri -Method Post -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                    $PostResponse = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $DataSourceConnectionUri -Method Post -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
                 }
                 $PostResponse | Add-Member -MemberType NoteProperty -Name ReportName -Value $Report.Name
                 $PostResponse | Add-Member -MemberType NoteProperty -Name DataSourceName -Value $ReportDataSource.Name
@@ -131,11 +131,11 @@ function Test-RsRestItemDataSource
                 Write-Verbose "$DataSourceConnectionUri"
                 if ($Credential -ne $null)
                 {
-                    $PostResponse = Invoke-RestMethod -Uri $DataSourceConnectionUri -Method Post -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -Credential $Credential -Verbose:$false
+                    $PostResponse = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $DataSourceConnectionUri -Method Post -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -Credential $Credential -Verbose:$false
                 }
                 else
                 {
-                    $PostResponse = Invoke-RestMethod -Uri $DataSourceConnectionUri -Method Post -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                    $PostResponse = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $DataSourceConnectionUri -Method Post -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
                 }
                 $PostResponse | Add-Member -MemberType NoteProperty -Name ReportName -Value $Report.Name
                 $PostResponse | Add-Member -MemberType NoteProperty -Name DataSourceName -Value $ReportDataSource.Name

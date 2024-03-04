@@ -65,7 +65,7 @@ function Get-RsRestDataSource {
             $dsItemUri = [String]::Format($dsItemsUriFormat, $RsItem)
 
             Write-Verbose "Retrieving data source contents $dsItemUri ..."
-            $response = Invoke-WebRequest @splatInvokeWebRequest -Method 'GET' -Uri $dsItemUri
+            $response = Invoke-WebRequest -AllowUnencryptedAuthentication @splatInvokeWebRequest -Method 'GET' -Uri $dsItemUri
             $item = ConvertFrom-Json $response.Content
 
             [PSCustomObject] $item | Select-Object -ExcludeProperty '@odata.context','@odata.type'

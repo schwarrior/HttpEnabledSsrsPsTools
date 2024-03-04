@@ -113,11 +113,11 @@ function Remove-RsRestCacheRefreshPlan {
             Write-Verbose "Deleting $($RefreshPlan.RsReport)$($Id)..."
             if ($Credential -ne $null)
             {
-                $response = Invoke-RestMethod -Uri $CacheRefreshPlansUri -Method Delete -WebSession $WebSession -Credential $Credential -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlansUri -Method Delete -WebSession $WebSession -Credential $Credential -Verbose:$false
             }
             else
             {
-                $response = Invoke-RestMethod -Uri $CacheRefreshPlansUri -Method Delete -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlansUri -Method Delete -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
             }
         }
         catch

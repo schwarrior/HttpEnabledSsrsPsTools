@@ -88,11 +88,11 @@ function Get-RsRestItemDataModelParameter
             $catalogItemsUri = [String]::Format($catalogItemsUri, $RsItem)
             if ($Credential -ne $null)
             {
-                $response = Invoke-WebRequest -Uri $catalogItemsUri -Method Get -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false
+                $response = Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $catalogItemsUri -Method Get -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false
             }
             else
             {
-                $response = Invoke-WebRequest -Uri $catalogItemsUri -Method Get -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false
+                $response = Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $catalogItemsUri -Method Get -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false
             }
 
             $item = ConvertFrom-Json $response.Content
@@ -103,11 +103,11 @@ function Get-RsRestItemDataModelParameter
 
             if ($Credential -ne $null)
             {
-                $paramResponse = Invoke-WebRequest -Uri $parametersUri -Method Get -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false
+                $paramResponse = Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $parametersUri -Method Get -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false
             }
             else
             {
-                $paramResponse = Invoke-WebRequest -Uri $parametersUri -Method Get -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false
+                $paramResponse = Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $parametersUri -Method Get -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false
             }
 
             Write-Verbose $paramResponse

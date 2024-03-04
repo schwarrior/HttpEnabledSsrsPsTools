@@ -244,11 +244,11 @@ function Set-RsRestItemDataSource
                 Write-Verbose "Updating data sources for $($RsItem)..."
                 if ($Credential -ne $null)
                 {
-                    Invoke-WebRequest -Uri $dataSourcesUri -Method $method -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
+                    Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $dataSourcesUri -Method $method -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
                 }
                 else
                 {
-                    Invoke-WebRequest -Uri $dataSourcesUri -Method $method -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
+                    Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $dataSourcesUri -Method $method -Body ([System.Text.Encoding]::UTF8.GetBytes($payloadJson)) -ContentType "application/json" -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
                 }
                 Write-Verbose "Data sources were updated successfully!"
             }

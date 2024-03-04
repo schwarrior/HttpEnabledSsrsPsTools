@@ -82,11 +82,11 @@ function Get-RsRestFolderContent
             $url = [String]::Format($catalogItemsUri, $RsFolder)
             if ($Credential -ne $null)
             {
-                $response = Invoke-WebRequest -Uri $url -Method Get -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false
+                $response = Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $url -Method Get -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false
             }
             else
             {
-                $response = Invoke-WebRequest -Uri $url -Method Get -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false
+                $response = Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $url -Method Get -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false
             }
 
             $catalogItems = (ConvertFrom-Json $response.Content).value

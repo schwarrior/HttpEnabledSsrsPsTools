@@ -80,11 +80,11 @@ function Remove-RsRestCatalogItem
     
                 if ($Credential -ne $null)
                 {
-                    Invoke-WebRequest -Uri $catalogItemsUri -Method Delete -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
+                    Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $catalogItemsUri -Method Delete -WebSession $WebSession -Credential $Credential -UseBasicParsing -Verbose:$false | Out-Null
                 }
                 else
                 {
-                    Invoke-WebRequest -Uri $catalogItemsUri -Method Delete -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
+                    Invoke-WebRequest -AllowUnencryptedAuthentication -Uri $catalogItemsUri -Method Delete -WebSession $WebSession -UseDefaultCredentials -UseBasicParsing -Verbose:$false | Out-Null
                 }
     
                 Write-Verbose "Catalog item $RsItem was deleted successfully!"

@@ -109,11 +109,11 @@ function Get-RsRestCacheRefreshPlanHistory
                 Write-Verbose "$CacheRefreshPlanUri"
                 if ($Credential -ne $null)
                 {
-                    $response = Invoke-RestMethod -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
+                    $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
                 }
                 else
                 {
-                    $response = Invoke-RestMethod -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -UseDefaultCredentials
+                    $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -UseDefaultCredentials
                 }
                 return $response.value
             }
@@ -125,11 +125,11 @@ function Get-RsRestCacheRefreshPlanHistory
             Write-Verbose "$CacheRefreshPlanUri"
             if ($Credential -ne $null)
             {
-                $response = Invoke-RestMethod -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
             }
             else
             {
-                $response = Invoke-RestMethod -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -UseDefaultCredentials
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $CacheRefreshPlanUri -Method Get -WebSession $WebSession -UseDefaultCredentials
             }
             return $response.value
         }

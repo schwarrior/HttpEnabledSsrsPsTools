@@ -71,11 +71,11 @@ function Get-RsRestPublicServerSetting
 
             if ($Credential -ne $null)
             {
-                $response = Invoke-RestMethod -Uri $uri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $uri -Method Get -WebSession $WebSession -Credential $Credential -Verbose:$false
             }
             else
             {
-                $response = Invoke-RestMethod -Uri $uri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
+                $response = Invoke-RestMethod -AllowUnencryptedAuthentication -Uri $uri -Method Get -WebSession $WebSession -UseDefaultCredentials -Verbose:$false
             }
         
             if ($response -ne $null -and $response.value -ne $null -and $response.value[0] -ne $null -and $response.value[0].Name -eq $Property)

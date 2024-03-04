@@ -27,7 +27,7 @@ function New-RestSessionHelperSplat
             Generates or retrieves a WebSession object and returns a hashtable to be used in further webrequest calls.
 
         .RETURNS
-            A hastable containing all properties to be passed to a Invoke-Webrequest call using splatting.
+            A hastable containing all properties to be passed to a Invoke-Webrequest -AllowUnencryptedAuthentication call using splatting.
     #>
 
     [CmdletBinding()]
