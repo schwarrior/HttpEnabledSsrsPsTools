@@ -3,18 +3,41 @@ Fork Read Me
 
 # HTTP Enabled SSRS PowerShell Tools
 
+https://github.com/schwarrior/HttpEnabledSsrsPsTools
+
 Forked from 
 
-Microsoft's Reporting Services (Powershell) Tools
+Microsoft's SQL Server Reporting Services PowerShell utilities
+https://github.com/Microsoft/ReportingServicesTools
 
-https://github.com/Microsoft/HttpEnabledSsrsPsTools
+
+## Disclaimer
+
+The inherited cmdlets were modified to pass a new security gate added to PowerShell 6.0.
+
+Use at your own risk. 
+
+This verson of the cmdlets can leak login credentials unencrypted over your network, even the Internet if not careful.
+
+If you must use these insecure cmdlets, mitigate some risk with the precautions:
+
+1. Access only SSRS servers inside your local network and execute the scripts on hosts that also reside within the same DMZ. 
+2. Only use this in contexts where NTLM pass-thru security is operational. If you are asked for a username and password when executing these cmdlets, then the actual entered username and password will be transmitted, in the clear. If there is no login prompt then NTLM is working; only a temporary token is sent. NTLM tokens are well protected from resuse and forgery.
 
 
 ## Fork Synopsis
 
-Discovered that none of the tools seem to work without an HTTPS Reporting Server portal.
+Discovered that none of the PowerShell cmdlets seem to work without an HTTPS Reporting Server portal.
 
-Enhanced all instances of `Invoke-WebRequest` and `Invoke-RestMethod` with the `-AllowUnencryptedAuthentication` flag.
+There was an issue reported by another user on the parent repo that describes this problem well. Unfornately it has not been addressed:
+
+https://github.com/microsoft/ReportingServicesTools/issues/410
+
+This issue is caused by a new security requirement added in PowerShell in v6.0.
+
+Invoking web (or intranet) endpoints that don't support HTTPS requires the inclusion of a new confirmation flag. 
+
+In this fork, all instances of `Invoke-WebRequest` and `Invoke-RestMethod` within module functions now include the `-AllowUnencryptedAuthentication` flag.
 
 ``` glob files to include
 */Functions/**
@@ -32,9 +55,17 @@ Replaced 78 results in 27 files.
 
 Ability to use a HTTP only Reporting Server portal restored.
 
+Updated module name and .net namespace name to match fork.
+
+Removed scripts that would deploy to public pckg repositories.
+
+Replaced any install scripting referencing github or any public pckg repo. Replaced with local install commands.
+
+Added disclaimer to top of ReadMe.md regarding the risk of exposing login info.
+
 
 Inherited Read Me (modified slightly for local-only installation)
-=================
+=================================================================
 
 # Reporting Services PowerShell
 SQL Server Reporting Services PowerShell utilities
