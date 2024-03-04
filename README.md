@@ -1,4 +1,39 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/github/microsoft/reportingservicestools?branch=master&svg=true)](https://ci.appveyor.com/project/jtarquino/reportingservicestools) [![ReportingServicesTools](https://img.shields.io/powershellgallery/v/ReportingServicesTools.svg?style=flat-square&label=ReportingServicesTools)](https://www.powershellgallery.com/packages/ReportingServicesTools/)
+Fork Read Me
+============
+
+# HTTP Enabled SSRS PowerShell Tools
+
+Forked from 
+
+Microsoft's Reporting Services (Powershell) Tools
+
+https://github.com/Microsoft/ReportingServicesTools
+
+
+## Fork Synopsis
+
+Discovered that none of the tools seem to work without an HTTPS Reporting Server portal.
+
+All instances of `Invoke-WebRequest` and `Invoke-RestRequest` had to be enhanced with the `-AllowUnencryptedAuthentication` flag.
+
+``` glob
+ReportingServicesTools/Functions/**
+```
+
+``` regex search
+Invoke-(Rest|Web)Request
+$0 -AllowUnencryptedAuthentication 
+```
+
+``` regex replace
+$0 -AllowUnencryptedAuthentication 
+```
+
+The remainder of this file is from the parent repo readme.md
+
+Inherited Read Me
+=================
+
 # Reporting Services PowerShell
 SQL Server Reporting Services PowerShell utilities
 
@@ -13,6 +48,9 @@ Please ensure you're running PowerShell version 3.0+
 ```powershell
 $PSVersionTable
 ```
+
+
+
 
 ## Install
 ```powershell
