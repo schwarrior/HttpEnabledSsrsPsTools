@@ -1,16 +1,16 @@
 #
-# Module manifest for module 'ReportingServicesTools'
+# Module manifest for module 'HttpEnabledSsrsPsTools'
 #
 #
 @{
     # Script module or binary module file associated with this manifest.
-    RootModule = 'ReportingServicesTools.psm1'
+    RootModule = 'HttpEnabledSsrsPsTools.psm1'
 
     # Version number of this module.
     ModuleVersion = '0.0.6.6'
 
     # ID used to uniquely identify this module
-    GUID = '9d139310-ce45-41ce-8e8b-d76335aa1789'
+    GUID = 'c6b429e1-2b42-44ce-b12f-cbf17386d5c4'
 
     # Author of this module
     Author = 'Microsoft Corporation'
@@ -25,7 +25,7 @@
     Description = 'Provides extra functionality for SSRS (SQL Server Reporting Services) and Power BI Report Server.  Includes the ability to deploy SSRS Reports, Datasets, and DataSources; as well as Power BI Reports.  For more information about the capabilities of this module, please visit the Project Site: https://github.com/Microsoft/ReportingServicesTools/'
 
     # Minimum version of the Windows PowerShell engine required by this module
-    PowerShellVersion = '3.0'
+    PowerShellVersion = '4.0'
 
     # Name of the Windows PowerShell host required by this module
     PowerShellHostName = ''
@@ -183,10 +183,10 @@
             IconUri = ""
 
             # The web address of this module's project or support homepage.
-            ProjectUri = "https://github.com/Microsoft/ReportingServicesTools/"
+            ProjectUri = "https://github.com/schwarrior/HttpEnabledSsrsPsTools.git"
 
             # The web address of this module's license. Points to a page that's embeddable and linkable.
-            LicenseUri = "https://raw.githubusercontent.com/Microsoft/ReportingServicesTools/master/License.md"
+            LicenseUri = "https://raw.githubusercontent.com/schwarrior/HttpEnabledSsrsPsTools/master/License.md"
 
             # Release notes for this particular version of the module
             # ReleaseNotes = False
