@@ -45,9 +45,9 @@ function Get-ShouldProcessTargetWmi
     {
         $Server = $BoundParameters["ComputerName"]
     }
-    elseif ([Microsoft.ReportingServicesTools.ConnectionHost]::ComputerName)
+    elseif ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ComputerName)
     {
-        $Server = [Microsoft.ReportingServicesTools.ConnectionHost]::ComputerName
+        $Server = [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ComputerName
     }
     else
     {
@@ -60,7 +60,7 @@ function Get-ShouldProcessTargetWmi
     }
     else
     {
-        $Version = [Microsoft.ReportingServicesTools.ConnectionHost]::Version
+        $Version = [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Version
     }    
     
     if ($BoundParameters["ReportServerInstance"])
@@ -69,7 +69,7 @@ function Get-ShouldProcessTargetWmi
     }
     else
     {
-        $Instance = ([Microsoft.ReportingServicesTools.ConnectionHost]::Instance)
+        $Instance = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Instance)
     }
     
     if ($PSBoundParameters.ContainsKey("Target"))
@@ -136,11 +136,11 @@ function Get-ShouldProcessTargetWeb
     {
         if ($Target)
         {
-            return "$([Microsoft.ReportingServicesTools.ConnectionHost]::ReportServerUri) : $Target"
+            return "$([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ReportServerUri) : $Target"
         }
         else
         {
-            return [Microsoft.ReportingServicesTools.ConnectionHost]::ReportServerUri
+            return [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ReportServerUri
         }
     }
 }

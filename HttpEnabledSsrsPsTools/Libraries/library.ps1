@@ -1,7 +1,7 @@
 $source = @"
 using System.Management.Automation;
 
-namespace Microsoft.ReportingServicesTools
+namespace Microsoft.HttpEnabledSsrsPsTools
 {
     /// <summary>
     /// Static class containing connection information to the reporting server.

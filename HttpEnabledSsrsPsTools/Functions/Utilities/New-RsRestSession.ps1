@@ -43,7 +43,7 @@ function New-RsRestSession
     param
     (
         [string]
-        $ReportPortalUri = ([Microsoft.ReportingServicesTools.ConnectionHost]::ReportPortalUri),
+        $ReportPortalUri = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ReportPortalUri),
 
         [ValidateSet("v1.0", "v2.0")]
         [string]
@@ -52,7 +52,7 @@ function New-RsRestSession
         [Alias('Credentials')]
         [AllowNull()]
         [System.Management.Automation.PSCredential]
-        $Credential = ([Microsoft.ReportingServicesTools.ConnectionHost]::Credential)
+        $Credential = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Credential)
     )
 
     if (($ReportPortalUri -eq $null) -or ($ReportPortalUri.Length -eq 0))

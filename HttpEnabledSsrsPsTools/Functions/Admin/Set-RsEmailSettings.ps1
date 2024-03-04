@@ -78,7 +78,7 @@ function Set-RsEmailSettings
     param
     (
         [Parameter(Mandatory = $True)]
-        [Microsoft.ReportingServicesTools.SmtpAuthentication]
+        [Microsoft.HttpEnabledSsrsPsTools.SmtpAuthentication]
         $Authentication = "Ntlm",
         
         [Parameter(Mandatory = $True)]
@@ -98,7 +98,7 @@ function Set-RsEmailSettings
         $ReportServerInstance,
         
         [Alias('SqlServerVersion')]
-        [Microsoft.ReportingServicesTools.SqlServerVersion]
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerVersion]
         $ReportServerVersion,
         
         [string]

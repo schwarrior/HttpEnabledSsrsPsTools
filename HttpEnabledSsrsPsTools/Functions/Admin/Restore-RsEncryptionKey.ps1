@@ -61,7 +61,7 @@ function Restore-RSEncryptionKey
         $ReportServerInstance,
 
         [Alias('SqlServerVersion')]
-        [Microsoft.ReportingServicesTools.SqlServerVersion]
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerVersion]
         $ReportServerVersion,
 
         [string]

@@ -54,12 +54,12 @@ function New-RsWebServiceProxy
     param
     (
         [string]
-        $ReportServerUri = ([Microsoft.ReportingServicesTools.ConnectionHost]::ReportServerUri),
+        $ReportServerUri = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ReportServerUri),
         
         [Alias('Credentials')]
         [AllowNull()]
         [System.Management.Automation.PSCredential]
-        $Credential = ([Microsoft.ReportingServicesTools.ConnectionHost]::Credential),
+        $Credential = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Credential),
 
         [ValidateSet('2005','2006','2010')]
         [string]
@@ -72,21 +72,21 @@ function New-RsWebServiceProxy
     #region If we did not specify a connection parameter, use a default connection
     if (-not ($PSBoundParameters.ContainsKey("ReportServerUri") -or $PSBoundParameters.ContainsKey("Credential")))
     {
-        if ([Microsoft.ReportingServicesTools.ConnectionHost]::Proxy)
+        if ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Proxy)
         {
-            return ([Microsoft.ReportingServicesTools.ConnectionHost]::Proxy)
+            return ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Proxy)
         }
         else
         {
             try
             {
-                $proxy = New-RsWebServiceProxy -ReportServerUri ([Microsoft.ReportingServicesTools.ConnectionHost]::ReportServerUri) -Credential ([Microsoft.ReportingServicesTools.ConnectionHost]::Credential) -ErrorAction Stop
-                [Microsoft.ReportingServicesTools.ConnectionHost]::Proxy = $proxy
+                $proxy = New-RsWebServiceProxy -ReportServerUri ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ReportServerUri) -Credential ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Credential) -ErrorAction Stop
+                [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Proxy = $proxy
                 return $proxy
             }
             catch
             {
-                throw (New-Object System.Exception("Failed to establish proxy connection to $([Microsoft.ReportingServicesTools.ConnectionHost]::ReportServerUri) : $($_.Exception.Message)", $_.Exception))
+                throw (New-Object System.Exception("Failed to establish proxy connection to $([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ReportServerUri) : $($_.Exception.Message)", $_.Exception))
             }
         }
     }

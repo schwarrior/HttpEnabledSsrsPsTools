@@ -123,13 +123,13 @@ function Set-RsDatabase
 
         [Parameter(Mandatory = $true)]
         [Alias('Authentication')]
-        [Microsoft.ReportingServicesTools.SqlServerAuthenticationType]
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerAuthenticationType]
         $DatabaseCredentialType,
 
         [System.Management.Automation.PSCredential]
         $DatabaseCredential,
 
-        [Microsoft.ReportingServicesTools.SqlServerAuthenticationType]
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerAuthenticationType]
         $AdminDatabaseCredentialType,
 
         [System.Management.Automation.PSCredential]
@@ -140,7 +140,7 @@ function Set-RsDatabase
         $ReportServerInstance,
 
         [Alias('SqlServerVersion')]
-        [Microsoft.ReportingServicesTools.SqlServerVersion]
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerVersion]
         $ReportServerVersion,
 
         [string]

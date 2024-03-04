@@ -64,7 +64,7 @@ function Connect-RsReportServer
         $ReportServerInstance,
         
         [Alias('SqlServerVersion')]
-        [Microsoft.ReportingServicesTools.SqlServerVersion]
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerVersion]
         $ReportServerVersion,
         
         [AllowEmptyString()]
@@ -93,28 +93,28 @@ function Connect-RsReportServer
     
     if ($PSBoundParameters.ContainsKey("ComputerName"))
     {
-        [Microsoft.ReportingServicesTools.ConnectionHost]::ComputerName = $ComputerName
+        [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ComputerName = $ComputerName
     }
     if ($PSBoundParameters.ContainsKey("ReportServerInstance"))
     {
-        [Microsoft.ReportingServicesTools.ConnectionHost]::Instance = $ReportServerInstance
+        [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Instance = $ReportServerInstance
     }
     if ($PSBoundParameters.ContainsKey("ReportServerVersion"))
     {
-        [Microsoft.ReportingServicesTools.ConnectionHost]::Version = $ReportServerVersion
+        [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Version = $ReportServerVersion
     }
     if ($PSBoundParameters.ContainsKey("Credential"))
     {
-        [Microsoft.ReportingServicesTools.ConnectionHost]::Credential = $Credential
+        [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Credential = $Credential
     }
     
     if ($PSBoundParameters.ContainsKey("ReportServerUri"))
     {
-        [Microsoft.ReportingServicesTools.ConnectionHost]::ReportServerUri = $ReportServerUri
+        [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ReportServerUri = $ReportServerUri
         try
         {
             $proxy = New-RsWebServiceProxyHelper -BoundParameters $PSBoundParameters
-            [Microsoft.ReportingServicesTools.ConnectionHost]::Proxy = $proxy
+            [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Proxy = $proxy
         }
         catch
         {
@@ -124,6 +124,6 @@ function Connect-RsReportServer
 
     if ($PSBoundParameters.ContainsKey("ReportPortalUri")) 
     {
-        [Microsoft.ReportingServicesTools.ConnectionHost]::ReportPortalUri = $ReportPortalUri
+        [Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ReportPortalUri = $ReportPortalUri
     }
 }

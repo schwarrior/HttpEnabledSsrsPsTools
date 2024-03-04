@@ -42,7 +42,7 @@ function Initialize-Rs
         $ReportServerInstance,
         
         [Alias('SqlServerVersion')]
-        [Microsoft.ReportingServicesTools.SqlServerVersion]
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerVersion]
         $ReportServerVersion,
         
         [string]

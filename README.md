@@ -54,7 +54,7 @@ $PSVersionTable
 
 ## Install
 ```powershell
-Import-Module .\ReportingServicesTools.psd1
+Import-Module .\HttpEnabledSsrsPsTools.psd1
 ```
 
 ## List of commands

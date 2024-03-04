@@ -60,20 +60,20 @@ function New-RsConfigurationSettingObject
     (
         [Alias('SqlServerInstance')]
         [string]
-        $ReportServerInstance = ([Microsoft.ReportingServicesTools.ConnectionHost]::Instance),
+        $ReportServerInstance = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Instance),
         
         [Alias('SqlServerVersion')]
-        [Microsoft.ReportingServicesTools.SqlServerVersion]
-        $ReportServerVersion = ([Microsoft.ReportingServicesTools.ConnectionHost]::Version),
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerVersion]
+        $ReportServerVersion = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Version),
         
         [string]
-        $ComputerName = ([Microsoft.ReportingServicesTools.ConnectionHost]::ComputerName),
+        $ComputerName = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::ComputerName),
         
         [System.Management.Automation.PSCredential]
-        $Credential = ([Microsoft.ReportingServicesTools.ConnectionHost]::Credential),
+        $Credential = ([Microsoft.HttpEnabledSsrsPsTools.ConnectionHost]::Credential),
         
         [Alias('MinimumSqlServerVersion')]
-        [Microsoft.ReportingServicesTools.SqlServerVersion]
+        [Microsoft.HttpEnabledSsrsPsTools.SqlServerVersion]
         $MinimumReportServerVersion
     )
     

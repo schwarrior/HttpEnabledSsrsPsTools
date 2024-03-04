@@ -22,7 +22,7 @@
     Copyright = '2016 Microsoft Corporation'
 
     # Description of the functionality provided by this module
-    Description = 'Provides extra functionality for SSRS (SQL Server Reporting Services) and Power BI Report Server.  Includes the ability to deploy SSRS Reports, Datasets, and DataSources; as well as Power BI Reports.  For more information about the capabilities of this module, please visit the Project Site: https://github.com/Microsoft/ReportingServicesTools/'
+    Description = 'Provides extra functionality for SSRS (SQL Server Reporting Services) and Power BI Report Server.  Includes the ability to deploy SSRS Reports, Datasets, and DataSources; as well as Power BI Reports.  For more information about the capabilities of this module, please visit the Project Site: https://github.com/Microsoft/HttpEnabledSsrsPsTools/'
 
     # Minimum version of the Windows PowerShell engine required by this module
     PowerShellVersion = '4.0'
@@ -141,7 +141,7 @@
     VariablesToExport = ''
 
     # Aliases to export from this module
-    # Aliases are stored in ReportingServicesTools.psm1
+    # Aliases are stored in HttpEnabledSsrsPsTools.psm1
     AliasesToExport = @(
         'Get-RsCatalogItems',
         'Get-RsCatalogItem',
