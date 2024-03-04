@@ -7,7 +7,7 @@ Forked from
 
 Microsoft's Reporting Services (Powershell) Tools
 
-https://github.com/Microsoft/ReportingServicesTools
+https://github.com/Microsoft/HttpEnabledSsrsPsTools
 
 
 ## Fork Synopsis
@@ -17,7 +17,7 @@ Discovered that none of the tools seem to work without an HTTPS Reporting Server
 Enhanced all instances of `Invoke-WebRequest` and `Invoke-RestMethod` with the `-AllowUnencryptedAuthentication` flag.
 
 ``` glob files to include
-ReportingServicesTools/Functions/**
+*/Functions/**
 ```
 
 ``` regex search
@@ -33,7 +33,7 @@ Replaced 78 results in 27 files.
 Ability to use a HTTP only Reporting Server portal restored.
 
 
-Inherited Read Me
+Inherited Read Me (modified slightly for local-only installation)
 =================
 
 # Reporting Services PowerShell
@@ -52,21 +52,11 @@ $PSVersionTable
 ```
 
 
-
-
 ## Install
 ```powershell
-Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/Microsoft/ReportingServicesTools/master/Install.ps1)
+Import-Module .\ReportingServicesTools.psd1
 ```
-or
-```powershell
-Invoke-Expression (Invoke-WebRequest https://aka.ms/rstools)
-```
-or
-```powershell
-Install-Module -Name ReportingServicesTools
-```
-Note: Using Install-Module is the preferred installation method for most users.
+
 ## List of commands
 
 The following is a list of commands which are available for you to use once you follow the steps in the Installation
@@ -167,13 +157,13 @@ All of the APIs used by this project are publicly available. There are 2 types o
 
 To verify the versions installed
 ```powershell
-Get-Module -ListAvailable -Name ReportingServicesTools
+Get-Module -ListAvailable -Name HttpEnabledSsrsPsTools
 ```
 
 After you clone the repo you can make local changes and install them in your local machine with
 ```powershell
-Remove-Module ReportingServicesTools
-Import-Module .\ReportingServicesTools.psd1
+Remove-Module HttpEnabledSsrsPsTools
+Import-Module .\HttpEnabledSsrsPsTools.psd1
 ```
 
 For debugging you can set the verbose logging with `$VerbosePreference = "continue"`
@@ -195,7 +185,7 @@ To execute the tests run (this will execute the CatalogItems test only which doe
 ## Import Known Issue
 Workaround for newer versions of PowerShell (version 7.0+)
 ```powershell
-Import-Module ReportingServicesTools -UseWindowsPowerShell
+Import-Module HttpEnabledSsrsPsTools -UseWindowsPowerShell
 ```
 ## Style Guidelines
 
