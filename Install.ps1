@@ -4,7 +4,7 @@ param (
     [string]$Version = 'master'
 )
 
-$localpath = $(Join-Path -Path (Split-Path -Path $profile) -ChildPath '\Modules\ReportingServicesTools')
+$localpath = $(Join-Path -Path (Split-Path -Path $profile) -ChildPath '\Modules\HttpEnabledSsrsPsTools')
 
 try
 {
@@ -34,16 +34,16 @@ if ($path.length -eq 0)
     $path = $localpath
 }
 
-if ((Get-Command -Module ReportingServicesTools).count -ne 0)
+if ((Get-Command -Module HttpEnabledSsrsPsTools).count -ne 0)
 {
-    Write-Output "Removing existing ReportingServiceTools Module..."
-    Remove-Module ReportingServicesTools -ErrorAction Stop
+    Write-Output "Removing existing HttpEnabledSsrsPsTools Module..."
+    Remove-Module HttpEnabledSsrsPsTools -ErrorAction Stop
 }
 
-$url = "https://github.com/Microsoft/ReportingServicesTools/archive/$Version.zip"
+$url = "https://github.com/schwarrior/HttpEnabledSsrsPsTools/archive/$Version.zip"
 
 $temp = ([System.IO.Path]::GetTempPath()).TrimEnd("\")
-$zipfile = "$temp\ReportingServicesTools.zip"
+$zipfile = "$temp\HttpEnabledSsrsPsTools.zip"
 
 if (!(Test-Path -Path $path))
 {
@@ -93,16 +93,16 @@ $shell = New-Object -COM Shell.Application
 $zipPackage = $shell.NameSpace($zipfile)
 $destinationFolder = $shell.NameSpace($temp)
 $destinationFolder.CopyHere($zipPackage.Items())
-Move-Item -Path "$temp\ReportingServicesTools-$Version\*" $path
-Write-Output "ReportingServicesTools has been successfully downloaded to $path!"
+Move-Item -Path "$temp\HttpEnabledSsrsPsTools-$Version\*" $path
+Write-Output "HttpEnabledSsrsPsTools has been successfully downloaded to $path!"
 
 Write-Output "Cleaning up..."
-Remove-Item -Path "$temp\ReportingServicesTools-$Version"
+Remove-Item -Path "$temp\HttpEnabledSsrsPsTools-$Version"
 Remove-Item -Path $zipfile
 
-Write-Output "Importing ReportingServicesTools Module..."
-Import-Module "$path\ReportingServicesTools\ReportingServicesTools.psd1" -Force
-Write-Output "ReportingServicesTools Module was successfully imported!"
+Write-Output "Importing HttpEnabledSsrsPsTools Module..."
+Import-Module "$path\HttpEnabledSsrsPsTools\HttpEnabledSsrsPsTools.psd1" -Force
+Write-Output "HttpEnabledSsrsPsTools Module was successfully imported!"
 
-Get-Command -Module ReportingServicesTools
+Get-Command -Module HttpEnabledSsrsPsTools
 Write-Output "`n`nIf you experience any function missing errors after update, please restart PowerShell or reload your profile."
