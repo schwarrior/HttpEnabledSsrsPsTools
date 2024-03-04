@@ -1,0 +1,32 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Install HttpEnabledSsrsPsTools",
+			"type": "PowerShell",
+			"request": "launch",
+			"script": "Import-Module .\\HttpEnabledSsrsPsTools.psd1",
+			"cwd": "${workspaceFolder}\\HttpEnabledSsrsPsTools",
+			"args": []
+		},
+		{
+			"name": "Uninstall HttpEnabledSsrsPsTools",
+			"type": "PowerShell",
+			"request": "launch",
+			"script": "Remove-Module HttpEnabledSsrsPsTools",
+			"cwd": "${workspaceFolder}\\HttpEnabledSsrsPsTools",
+			"args": []
+		},
+		{
+			"name": "Get Install Status of HttpEnabledSsrsPsTools",
+			"type": "PowerShell",
+			"request": "launch",
+			"script": "Get-ModuleHttpEnabledSsrsPsTools",
+			"cwd": "${workspaceFolder}\\HttpEnabledSsrsPsTools",
+			"args": []
+		}
+	]
+}

@@ -24,6 +24,8 @@ If you must use these insecure cmdlets, mitigate some risk with the precautions:
 1. Access only SSRS servers inside your local network and execute the scripts on hosts that also reside within the same DMZ. 
 2. Only use this in contexts where NTLM pass-thru security is operational. If you are asked for a username and password when executing these cmdlets, then the actual entered username and password will be transmitted, in the clear. If there is no login prompt then NTLM is working; only a temporary token is sent. NTLM tokens are well protected from resuse and forgery.
 
+Additionally, attempts to install this module without first uninstalling the parent with `Uninstall-Module -Name ReportingServicesTools` could lead to unknown (possibly nasty) consequences. Here in the fork, the module name and id are different but the function names and aliases are the same as the parent.
+
 
 ## Fork Synopsis
 

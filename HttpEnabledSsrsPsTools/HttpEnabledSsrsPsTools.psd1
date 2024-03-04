@@ -183,7 +183,7 @@
             IconUri = ""
 
             # The web address of this module's project or support homepage.
-            ProjectUri = "https://github.com/schwarrior/HttpEnabledSsrsPsTools.git"
+            ProjectUri = "https://github.com/schwarrior/HttpEnabledSsrsPsTools"
 
             # The web address of this module's license. Points to a page that's embeddable and linkable.
             LicenseUri = "https://raw.githubusercontent.com/schwarrior/HttpEnabledSsrsPsTools/master/License.md"
