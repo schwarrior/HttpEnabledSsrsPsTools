@@ -14,22 +14,24 @@ https://github.com/Microsoft/ReportingServicesTools
 
 Discovered that none of the tools seem to work without an HTTPS Reporting Server portal.
 
-All instances of `Invoke-WebRequest` and `Invoke-RestRequest` had to be enhanced with the `-AllowUnencryptedAuthentication` flag.
+Enhanced all instances of `Invoke-WebRequest` and `Invoke-RestMethod` with the `-AllowUnencryptedAuthentication` flag.
 
-``` glob
+``` glob files to include
 ReportingServicesTools/Functions/**
 ```
 
 ``` regex search
-Invoke-(Rest|Web)Request
-$0 -AllowUnencryptedAuthentication 
+Invoke-(RestMethod|WebRequest)
 ```
 
 ``` regex replace
-$0 -AllowUnencryptedAuthentication 
+$0 -AllowUnencryptedAuthentication
 ```
 
-The remainder of this file is from the parent repo readme.md
+Replaced 78 results in 27 files.
+
+Ability to use a HTTP only Reporting Server portal restored.
+
 
 Inherited Read Me
 =================
